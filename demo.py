@@ -190,4 +190,71 @@ transform = transforms.Compose([
 
 
 
+image = Image.open('samples/catdog.png')
+dog_cat_image = transform(image)
 
+fig, axs = plt.subplots(1, 3)
+axs[0].imshow(image);
+axs[0].axis('off');
+
+output = model(dog_cat_image.unsqueeze(0).cuda())
+print_top_classes(output)
+
+# dog 
+# generate visualization for class 243: 'bull mastiff' - the predicted class
+dog = generate_visualization(dog_cat_image)
+
+# cat - generate visualization for class 282 : 'tiger cat'
+cat = generate_visualization(dog_cat_image, class_index=282)
+
+
+axs[1].imshow(dog);
+axs[1].axis('off');
+axs[2].imshow(cat);
+axs[2].axis('off');
+
+
+image = Image.open('samples/el2.png')
+tusker_zebra_image = transform(image)
+
+fig, axs = plt.subplots(1, 3)
+axs[0].imshow(image);
+axs[0].axis('off');
+
+output = model(tusker_zebra_image.unsqueeze(0).cuda())
+print_top_classes(output)
+
+# zebra 
+# zebra- the predicted class
+zebra = generate_visualization(tusker_zebra_image, class_index=340)
+
+# generate visualization for class 101: 'tusker'
+tusker = generate_visualization(tusker_zebra_image, class_index=101)
+
+axs[1].imshow(zebra);
+axs[1].axis('off');
+axs[2].imshow(tusker);
+axs[2].axis('off');
+
+
+image = Image.open('samples/dogbird.png')
+dog_bird_image = transform(image)
+
+fig, axs = plt.subplots(1, 3)
+axs[0].imshow(image);
+axs[0].axis('off');
+
+output = model(dog_bird_image.unsqueeze(0).cuda())
+print_top_classes(output)
+
+# basset - the predicted class
+basset = generate_visualization(dog_bird_image, class_index=161)
+
+# generate visualization for class 90: 'lorikeet'
+parrot = generate_visualization(dog_bird_image, class_index=90)
+
+
+axs[1].imshow(basset);
+axs[1].axis('off');
+axs[2].imshow(parrot);
+axs[2].axis('off');
