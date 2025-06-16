@@ -71,14 +71,40 @@ class Mlp(nn.Module):
         x = self.drop(x)
         return x
 
+    # def relprop(self, cam, **kwargs):
+    #     cam = self.drop.relprop(cam, **kwargs)
+    #     cam = self.fc2.relprop(cam, **kwargs)
+    #     cam = self.act.relprop(cam, **kwargs)
+    #     cam = self.fc1.relprop(cam, **kwargs)
+    #     return cam
+
     def relprop(self, cam, **kwargs):
         cam = self.drop.relprop(cam, **kwargs)
         cam = self.fc2.relprop(cam, **kwargs)
         cam = self.act.relprop(cam, **kwargs)
         cam = self.fc1.relprop(cam, **kwargs)
 
-        print("**" , cam.shape)
-        return cam
+        x_matrix = cam.squeeze(0)  # Shape: [197, 768]
+
+        # Step 2: Apply SVD
+        U, S, Vh = torch.linalg.svd(x_matrix, full_matrices=False)  # U: [197, r], S: [r], Vh: [r, 768]
+
+        # Step 3: Choose top k% singular values
+        k_percent = 0.2  # for top 20%
+        k = int(S.size(0) * k_percent)
+
+        # Reduce components
+        U_k = U[:, :k]       # [197, k]
+        S_k = S[:k]          # [k]
+        Vh_k = Vh[:k, :]     # [k, 768]
+
+        # Step 4: Reconstruct the matrix with top-k components
+        S_k_matrix = torch.diag(S_k)  # [k, k]
+        x_approx = U_k @ S_k_matrix @ Vh_k  # [197, 768]
+
+
+        x_approx = x_approx.unsqueeze(0)
+        return x_approx
 
 
 class Attention(nn.Module):
