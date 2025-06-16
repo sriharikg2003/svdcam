@@ -95,7 +95,7 @@ axs[1].imshow(cat)
 axs[1].axis('off')
 axs[2].imshow(dog)
 axs[2].axis('off')
-
+plt.show()
 
 #@title Perform thresholding on the relevance (using Otsu's method)
 prev_use_thresholding = use_thresholding
@@ -125,7 +125,7 @@ axs[1].imshow(cat)
 axs[1].axis('off')
 axs[2].imshow(dog)
 axs[2].axis('off')
-
+plt.show()
 
 image = Image.open('samples/el2.png')
 tusker_zebra_image = transform(image)
@@ -149,7 +149,7 @@ axs[1].imshow(tusker)
 axs[1].axis('off')
 axs[2].imshow(zebra)
 axs[2].axis('off')
-
+plt.show()
 image = Image.open('samples/dogbird.png')
 dog_bird_image = transform(image)
 
@@ -171,7 +171,7 @@ axs[1].imshow(basset)
 axs[1].axis('off')
 axs[2].imshow(parrot)
 axs[2].axis('off')
-
+plt.show()
 
 from baselines.ViT.ViT_LRP import deit_base_patch16_224 as vit_LRP
 from baselines.ViT.ViT_explanation_generator import LRP
@@ -212,7 +212,7 @@ axs[1].imshow(dog)
 axs[1].axis('off')
 axs[2].imshow(cat)
 axs[2].axis('off')
-
+plt.show()
 
 image = Image.open('samples/el2.png')
 tusker_zebra_image = transform(image)
@@ -235,7 +235,7 @@ axs[1].imshow(zebra)
 axs[1].axis('off')
 axs[2].imshow(tusker)
 axs[2].axis('off')
-
+plt.show()
 
 image = Image.open('samples/dogbird.png')
 dog_bird_image = transform(image)
@@ -258,3 +258,4 @@ axs[1].imshow(basset)
 axs[1].axis('off')
 axs[2].imshow(parrot)
 axs[2].axis('off')
+plt.show()
