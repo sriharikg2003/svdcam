@@ -1,0 +1,24 @@
+/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/cuda/__init__.py:104: UserWarning: 
+NVIDIA H100 PCIe with CUDA capability sm_90 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70 sm_75.
+If you want to use the NVIDIA H100 PCIe GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+Traceback (most recent call last):
+  File "/export/home/srihari/REL_CAM/Transformer-Explainability/demo.py", line 83, in <module>
+    output = model(dog_cat_image.unsqueeze(0).cuda())
+  File "/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/export/home/srihari/REL_CAM/Transformer-Explainability/baselines/ViT/ViT_LRP.py", line 312, in forward
+    x = self.patch_embed(x)
+  File "/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/export/home/srihari/REL_CAM/Transformer-Explainability/baselines/ViT/ViT_LRP.py", line 240, in forward
+    x = self.proj(x).flatten(2).transpose(1, 2)
+  File "/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 423, in forward
+    return self._conv_forward(input, self.weight)
+  File "/export/home/srihari/.conda/envs/vit38/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 419, in _conv_forward
+    return F.conv2d(input, weight, self.bias, self.stride,
+RuntimeError: CUDA error: no kernel image is available for execution on the device

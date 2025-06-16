@@ -1,0 +1,14 @@
+Pillow>=8.1.1
+einops == 0.3.0
+h5py == 2.8.0
+imageio == 2.9.0
+matplotlib == 3.3.2
+opencv-python
+scikit-image
+scipy == 1.5.2
+torch 
+torchvision 
+tqdm 
+transformers
+utils 
+Pygments>=2.7.4
