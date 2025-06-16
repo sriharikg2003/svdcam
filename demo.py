@@ -77,8 +77,8 @@ image = Image.open('samples/catdog.png')
 dog_cat_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(dog_cat_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -91,10 +91,10 @@ cat = generate_visualization(dog_cat_image)
 dog = generate_visualization(dog_cat_image, class_index=243)
 
 
-axs[1].imshow(cat);
-axs[1].axis('off');
-axs[2].imshow(dog);
-axs[2].axis('off');
+axs[1].imshow(cat)
+axs[1].axis('off')
+axs[2].imshow(dog)
+axs[2].axis('off')
 
 
 #@title Perform thresholding on the relevance (using Otsu's method)
@@ -105,8 +105,8 @@ image = Image.open('samples/catdog.png')
 dog_cat_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(dog_cat_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -121,18 +121,18 @@ dog = generate_visualization(dog_cat_image, class_index=243)
 if not prev_use_thresholding:
   use_thresholding = False
 
-axs[1].imshow(cat);
-axs[1].axis('off');
-axs[2].imshow(dog);
-axs[2].axis('off');
+axs[1].imshow(cat)
+axs[1].axis('off')
+axs[2].imshow(dog)
+axs[2].axis('off')
 
 
 image = Image.open('samples/el2.png')
 tusker_zebra_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(tusker_zebra_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -145,17 +145,17 @@ tusker = generate_visualization(tusker_zebra_image)
 zebra = generate_visualization(tusker_zebra_image, class_index=340)
 
 
-axs[1].imshow(tusker);
-axs[1].axis('off');
-axs[2].imshow(zebra);
-axs[2].axis('off');
+axs[1].imshow(tusker)
+axs[1].axis('off')
+axs[2].imshow(zebra)
+axs[2].axis('off')
 
 image = Image.open('samples/dogbird.png')
 dog_bird_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(dog_bird_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -167,10 +167,10 @@ basset = generate_visualization(dog_bird_image, class_index=161)
 parrot = generate_visualization(dog_bird_image, class_index=87)
 
 
-axs[1].imshow(basset);
-axs[1].axis('off');
-axs[2].imshow(parrot);
-axs[2].axis('off');
+axs[1].imshow(basset)
+axs[1].axis('off')
+axs[2].imshow(parrot)
+axs[2].axis('off')
 
 
 from baselines.ViT.ViT_LRP import deit_base_patch16_224 as vit_LRP
@@ -194,8 +194,8 @@ image = Image.open('samples/catdog.png')
 dog_cat_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(dog_cat_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -208,18 +208,18 @@ dog = generate_visualization(dog_cat_image)
 cat = generate_visualization(dog_cat_image, class_index=282)
 
 
-axs[1].imshow(dog);
-axs[1].axis('off');
-axs[2].imshow(cat);
-axs[2].axis('off');
+axs[1].imshow(dog)
+axs[1].axis('off')
+axs[2].imshow(cat)
+axs[2].axis('off')
 
 
 image = Image.open('samples/el2.png')
 tusker_zebra_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(tusker_zebra_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -231,18 +231,18 @@ zebra = generate_visualization(tusker_zebra_image, class_index=340)
 # generate visualization for class 101: 'tusker'
 tusker = generate_visualization(tusker_zebra_image, class_index=101)
 
-axs[1].imshow(zebra);
-axs[1].axis('off');
-axs[2].imshow(tusker);
-axs[2].axis('off');
+axs[1].imshow(zebra)
+axs[1].axis('off')
+axs[2].imshow(tusker)
+axs[2].axis('off')
 
 
 image = Image.open('samples/dogbird.png')
 dog_bird_image = transform(image)
 
 fig, axs = plt.subplots(1, 3)
-axs[0].imshow(image);
-axs[0].axis('off');
+axs[0].imshow(image)
+axs[0].axis('off')
 
 output = model(dog_bird_image.unsqueeze(0).cuda())
 print_top_classes(output)
@@ -254,7 +254,7 @@ basset = generate_visualization(dog_bird_image, class_index=161)
 parrot = generate_visualization(dog_bird_image, class_index=90)
 
 
-axs[1].imshow(basset);
-axs[1].axis('off');
-axs[2].imshow(parrot);
-axs[2].axis('off');
+axs[1].imshow(basset)
+axs[1].axis('off')
+axs[2].imshow(parrot)
+axs[2].axis('off')
