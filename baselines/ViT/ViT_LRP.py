@@ -77,6 +77,7 @@ class Mlp(nn.Module):
         cam = self.act.relprop(cam, **kwargs)
         cam = self.fc1.relprop(cam, **kwargs)
         breakpoint()
+        print(cam.shape)
         return cam
 
 
