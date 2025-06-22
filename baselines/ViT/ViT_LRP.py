@@ -85,13 +85,13 @@ class Mlp(nn.Module):
         cam = self.fc1.relprop(cam, **kwargs)
 
         x_matrix = cam.squeeze(0)  # Shape: [197, 768]
-        use_svd = False
+        use_svd = True
         if use_svd:
         # Step 2: Apply SVD
             U, S, Vh = torch.linalg.svd(x_matrix, full_matrices=False)  # U: [197, r], S: [r], Vh: [r, 768]
 
             # Step 3: Choose top k% singular values
-            k_percent = 0.2  # for top 20%
+            k_percent = 0.1  # for top 20%
             k = int(S.size(0) * k_percent)
 
             # Reduce components
