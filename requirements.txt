@@ -11,4 +11,4 @@ torchvision
 tqdm 
 transformers
 utils 
-Pygments>=2.7.4 
+Pygments>=2.7.4
